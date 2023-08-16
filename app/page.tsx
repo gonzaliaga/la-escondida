@@ -1,13 +1,13 @@
-import { Button } from '@nextui-org/button';
+import HomeSection from '@/components/homeSection/HomeSection';
+import Google from "../components/google/GoogleAnalitycs"
 
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div>
-        <Button>Click me wuaaaaaa</Button>
-      </div>
+    <>
 
-    </main>
+      <HomeSection/>
+      <Google/>
+    </>
   )
 }

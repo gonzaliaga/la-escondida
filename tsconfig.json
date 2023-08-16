@@ -23,6 +23,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/avatar/avatar.jsx", "components/navbar/Navbar.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/avatar/avatar.jsx", "components/navbar/Navbar.jsx", "components/footer/Footer.jsx", "components/homeSection/HomeSection.jsx", "components/cards/Cards.jsx"],
   "exclude": ["node_modules"]
 }
