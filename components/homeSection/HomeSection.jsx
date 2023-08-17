@@ -23,4 +23,3 @@ export default function HomeSection() {
 
   )
 }
-// style={{ position: 'absolute', marginTop: "0px", marginLeft: "0px", zIndex: -1, width: '100%', height: '100%' }}

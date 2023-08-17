@@ -5,11 +5,12 @@ import NickChick from "./NickChick"
 
 export default function Pollos() {
   return (
-    <div>
+    <div className="px-8 py-5">
       <BrownNick />
       <br/>
       <NickChick />
-      <br/>
+
+
     </div>
   );
 }

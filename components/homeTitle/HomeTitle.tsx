@@ -20,7 +20,7 @@ export default function HomeTitle() {
         <p className="w-[70%] ">
           {/* Aca va otro titulo si es necesario */}
         </p>
-        <div>
+        <div className="md:">
           <Link href="/#">
             <Button text={"Productos"} />
           </Link>
