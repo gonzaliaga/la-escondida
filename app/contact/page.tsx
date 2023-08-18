@@ -1,8 +1,8 @@
-import ContactSection from "@/components/Contact/Contact"
-export default function Contact() {
+/* import Contact from "@/components/contact/Contact" */
+export default function Contacto() {
   return (
     <div className="h-screen">
-      <ContactSection />
+      
     </div>
   )
 }

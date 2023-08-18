@@ -1,12 +1,12 @@
-import { Contactanos } from "./Contact"
+import { Contact } from "./Contact"
 
 
 
-const validations = (info: Contactanos) => {
+const validations = (info: Contact) => {
 
     const regexEmail = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
     const regexPhone = /^\d+(\.\d +)?$/
-    let error: Contactanos = {}
+    let error: Contact = {}
 
     info.phone = info.phone?.toString();
 
