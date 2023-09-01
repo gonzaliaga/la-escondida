@@ -21,7 +21,12 @@ export default function HomeTitle() {
           {/* Aca va otro titulo si es necesario */}
         </p>
         <div className="md:">
-          <Link href="/#">
+          <Link href="/contact">
+            <Button text={"Asesoría"} />
+          </Link>
+        </div>
+        <div className="md:">
+          <Link href="/">
             <Button text={"Productos"} />
           </Link>
         </div>

@@ -26,17 +26,23 @@ export default function BrownNick() {
                     width={200}
                 />
                 <div className="content-center">
-                <p className="text-large text-green-800 font-bold py-2">Descargas</p>
-                    <Link href="/#">
-                        <Boton text={"Características"} />
-                    </Link>
+                    <p className="text-large text-green-800 font-bold py-2"></p>
+                    <div>
+                        <Link href="/#">
+                            <Boton text={"Características"} />
+                        </Link>
+                    </div>
+                    <br />
+                    <div>
+                        <Link href="/contact">
+                            <Boton text={"+ Información"} />
+                        </Link>
+                    </div>
                 </div>
-                
+
                 <CardFooter className="justify-between before:bg-white/10 border-green-900/30 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
-                    <p className="text-large text-green-800 font-bold">Gallina de huevo marrón - Brown Nick</p>
-                    <Button className="text-tiny text-white bg-orange-500" variant="flat" color="default" radius="sm" size="sm">
-                        Comprar
-                    </Button>
+                    <p className="text-large text-green-800 font-bold text-center mx-auto">Gallina de huevo marrón - Brown Nick</p>
+
                 </CardFooter>
             </Card >
 
@@ -45,7 +51,7 @@ export default function BrownNick() {
                     <Tabs key={color} color={color} aria-label="Options" radius="full">
                         <Tab key="viabilidad" title="Viabilidad">
                             <Card>
-                            <CardBody className="h-72">
+                                <CardBody className="h-72">
                                     <span className="text-xl text-green-900 font-bold">Viabilidad</span>
                                     <Table hideHeader aria-label="viabilidad">
                                         <TableHeader aria-label="detalles">
