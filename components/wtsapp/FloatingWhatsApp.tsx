@@ -3,6 +3,7 @@ import React, { useReducer, useEffect, useCallback, useRef, useMemo } from 'reac
 import { reducer } from './reducer'
 import { WhatsappSVG, CloseSVG, CheckSVG, SendSVG } from './Icons'
 import css from './styles.module.css'
+import Image from "next/image"
 
 import darkBG from './assets/bg-chat-tile-light.png'
 import lightBG from './assets/bg-chat-tile-dark.png'
@@ -234,7 +235,7 @@ export function FloatingWhatsApp({
       >
         <header className={css.chatHeader}>
           <div className={css.avatar}>
-            <img {...avatar} width='60' height='60' alt='whatsapp-avatar' />
+            <Image {...avatar} width='60' height='60' alt='whatsapp-avatar' />
           </div>
           <div className={css.status}>
             <span className={css.statusTitle}>{accountName}</span>
