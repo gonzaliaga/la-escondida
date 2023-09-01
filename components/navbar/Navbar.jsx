@@ -73,12 +73,12 @@ export default function NavbarApp() {
         </NavbarItem>
         <NavbarItem className="font-bold animate-fade-left animate-delay-300" >
           <Link style={gradientText} href="/contact" className={pathName === "/contact" ? activeLink : inactiveLink}>
-            Contacto
+            Conversemos
           </Link>
         </NavbarItem>
         <NavbarItem className="font-bold animate-fade-left animate-delay-300">
           <Link style={gradientText} href="/about" className={pathName === "/about" ? activeLink : inactiveLink}>
-            Acerca
+            Sobre Nosotros
           </Link>
         </NavbarItem>
       </NavbarContent>
@@ -86,13 +86,13 @@ export default function NavbarApp() {
         <NavbarItem className="hidden lg:flex" style={{ margin: '0' }}>
           <Link href="#"></Link>
         </NavbarItem>
-        <NavbarItem className="mr-0">
+{/*         <NavbarItem className="mr-0">
           <Link href="#" >
             <a style={{ display: 'block', width: '40px', height: '40px', marginTop: '5px' }}>
               <Image src={WtsApp} alt="#" />
             </a>
           </Link>
-        </NavbarItem>
+        </NavbarItem> */}
       </NavbarContent>
       <NavbarMenu>
         {menuItems.map((item, index) => (

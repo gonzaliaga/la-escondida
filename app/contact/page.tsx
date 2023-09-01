@@ -1,27 +1,20 @@
-// This example uses `@web3forms/react` plugin and tailwindcss for css styling
 "use client"
-import { useState, useEffect } from "react";
+import { useState, } from "react";
 import { useForm } from "react-hook-form";
 import useWeb3Forms from "@web3forms/react";
-import HCaptcha from '@hcaptcha/react-hcaptcha';
 
 export default function Contact() {
   const {
     register,
     handleSubmit,
     reset,
-    watch,
-    control,
-    setValue,
     formState: { errors, isSubmitSuccessful, isSubmitting },
   } = useForm({
     mode: "onTouched",
   });
   const [isSuccess, setIsSuccess] = useState(false);
-  const [message, setMessage] = useState(false);
-  const onHCaptchaChange = (token) => {
-    setValue("h-captcha-response", token);
-  };
+  const [message, setMessage] = useState("");
+
 
   // Please update the Access Key in the .env
   const apiKey = process.env.PUBLIC_ACCESS_KEY || "126d9267-898b-4c48-b8b5-8e6ff3050cf3";
@@ -32,24 +25,24 @@ export default function Contact() {
       from_name: "Establecimiento La Escondida",
       subject: "Mensaje desde la Página Web!!!",
     },
-    onSuccess: (msg, data) => {
+    onSuccess: (msg) => {
       setIsSuccess(true);
       setMessage(msg);
       reset();
     },
-    onError: (msg, data) => {
+    onError: (msg) => {
       setIsSuccess(false);
       setMessage(msg);
     },
   });
 
   return (
-    <div className="grid grid-cols-2 gap-4 mt-10 mx-6">
-      <div className="mt-44 align-middle justify-center ">
-        <span className=" text-4xl font-bold drop-shadow-lg">Y si nos conectamos?</span>
-        <p className="text-sm">dejame tus datos Email, Teléfono, Nombre y Apellido asi nos contactamos</p>
+    <div className="h-screen grid grid-cols-2 gap-4 mt-10 mx-6">
+      <div className="mt-44 ml-10 align-middle justify-center ">
+        <span className=" text-4xl font-bold drop-shadow-lg">Conversemos</span>
+        <p className="text-sm">déjame tus datos y nos conectamos</p>
       </div>
-      <form onSubmit={handleSubmit(onSubmit)} className=" box-content border-4 drop-shadow-md">
+      <form onSubmit={handleSubmit(onSubmit)} className="mt-20 mb-10 box-content drop-shadow-md">
         <input
           type="checkbox"
           id=""
@@ -62,11 +55,10 @@ export default function Contact() {
             type="text"
             placeholder="Nombre Completo"
             autoComplete="false"
-            className={`w-80 px-4 py-3 border-2 placeholder:text-gray-800 dark:text-white rounded-md outline-none dark:placeholder:text-gray-200 dark:bg-gray-900   focus:ring-4  ${
-              errors.name
+            className={`w-80 px-4 py-3 border-2 placeholder:text-gray-800 dark:text-white rounded-md outline-none dark:placeholder:text-gray-200 dark:bg-gray-900   focus:ring-4  ${errors.name
                 ? "border-red-600 focus:border-red-600 ring-red-100 dark:ring-0"
                 : "border-gray-300 focus:border-gray-600 ring-gray-100 dark:border-gray-600 dark:focus:border-white dark:ring-0"
-            }`}
+              }`}
             {...register("name", {
               required: "Se requiere su nombre completo",
               maxLength: 80,
@@ -74,7 +66,7 @@ export default function Contact() {
           />
           {errors.name && (
             <div className="mt-1 text-red-600">
-              <small>{errors.name.message}</small>
+              <small>{message}</small>
             </div>
           )}
         </div>
@@ -87,13 +79,12 @@ export default function Contact() {
             id="email_address"
             type="email"
             placeholder="Email"
-            name="email"
+            /* name="email" */
             autoComplete="false"
-            className={`w-80 px-4 py-3 border-2 placeholder:text-gray-800 dark:text-white rounded-md outline-none dark:placeholder:text-gray-200 dark:bg-gray-900   focus:ring-4  ${
-              errors.email
+            className={`w-80 px-4 py-3 border-2 placeholder:text-gray-800 dark:text-white rounded-md outline-none dark:placeholder:text-gray-200 dark:bg-gray-900   focus:ring-4  ${errors.email
                 ? "border-red-600 focus:border-red-600 ring-red-100 dark:ring-0"
                 : "border-gray-300 focus:border-gray-600 ring-gray-100 dark:border-gray-600 dark:focus:border-white dark:ring-0"
-            }`}
+              }`}
             {...register("email", {
               required: "Ingrese su Email",
               pattern: {
@@ -102,22 +93,21 @@ export default function Contact() {
               },
             })}
           />
-          {errors.email && (
+          {errors.email ? (
             <div className="mt-1 text-red-600">
-              <small>{errors.email.message}</small>
+              <small>{message}</small>
             </div>
-          )}
+          ) : null}
         </div>
 
         <div className="mb-3">
           <textarea
-            name="message"
+            /* name="message" */
             placeholder="Ingrese su Mensaje"
-            className={`w-80 px-4 py-3 border-2 placeholder:text-gray-800 dark:text-white dark:placeholder:text-gray-200 dark:bg-gray-900   rounded-md outline-none  h-36 focus:ring-4  ${
-              errors.message
+            className={`w-80 px-4 py-3 border-2 placeholder:text-gray-800 dark:text-white dark:placeholder:text-gray-200 dark:bg-gray-900   rounded-md outline-none  h-36 focus:ring-4  ${errors.message
                 ? "border-red-600 focus:border-red-600 ring-red-100 dark:ring-0"
                 : "border-gray-300 focus:border-gray-600 ring-gray-100 dark:border-gray-600 dark:focus:border-white dark:ring-0"
-            }`}
+              }`}
             {...register("message", {
               required: "Ingrese el Mensaje",
             })}
@@ -125,17 +115,10 @@ export default function Contact() {
           {errors.message && (
             <div className="mt-1 text-red-600">
               {" "}
-              <small>{errors.message.message}</small>
+              <small>{message}</small>
             </div>
           )}
         </div>
-
-        <HCaptcha 
-         sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
-         onVerify={onHCaptchaChange}
-
-      />
-
         <button
           type="submit"
           className="w-50 py-4 font-semibold text-white transition-colors bg-gray-900 rounded-md hover:bg-gray-800 focus:outline-none focus:ring-offset-2 focus:ring focus:ring-gray-200 px-7 dark:bg-white dark:text-black ">

@@ -1,6 +1,6 @@
 export default function About() {
     return (
-      <div className="grid grid-cols-2 mt-96 align-middle">
+      <div className="h-full grid grid-cols-2 mt-96 align-middle">
         <div>
           <p> ESTE ES EL ABOUT</p>
         </div>

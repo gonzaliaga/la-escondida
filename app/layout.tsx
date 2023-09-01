@@ -1,9 +1,10 @@
 'use client'
 import './globals.css'
 import { Inter } from 'next/font/google'
-import {Providers} from "./providers";
+import { Providers } from "./providers";
 import NavbarApp from '@/components/navbar/Navbar';
 import Footer from "@/components/footer/Footer"
+import { FloatingWhatsApp, FloatingWhatsAppProps } from "@/components/wtsapp/FloatingWhatsApp"
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -24,13 +25,17 @@ export default function RootLayout({
         <meta name="description" content={metadata.description} />
         <link rel="icon" href="/favicon.ico" sizes="any" />
 
-        
+
       </head>
       <body>
         <Providers>
-          <NavbarApp/>
+          <NavbarApp />
+          <FloatingWhatsApp
+            phoneNumber="+56956659732"
+            accountName="Establecimiento la Escondida"
+          />
           {children}
-          <Footer/>
+          <Footer />
         </Providers>
       </body>
     </html>
