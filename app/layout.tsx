@@ -6,6 +6,7 @@ import NavbarApp from '@/components/navbar/Navbar';
 import Footer from "@/components/footer/Footer"
 import { FloatingWhatsApp, FloatingWhatsAppProps } from "@/components/wtsapp/FloatingWhatsApp"
 
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -25,9 +26,12 @@ export default function RootLayout({
         <meta name="description" content={metadata.description} />
         <link rel="icon" href="/favicon.ico" sizes="any" />
 
+        <div className="loader"></div>
+
 
       </head>
       <body>
+      {/* <span className="loader"></span> */}
         <Providers>
           <NavbarApp />
           <FloatingWhatsApp
