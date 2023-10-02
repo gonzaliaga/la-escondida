@@ -26,7 +26,7 @@ export default function RootLayout({
         <meta name="description" content={metadata.description} />
         <link rel="icon" href="/favicon.ico" sizes="any" />
 
-        <div className="loader"></div>
+        
 
 
       </head>
